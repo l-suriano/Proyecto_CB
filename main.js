@@ -52,20 +52,19 @@ update();
 // Track de clicks
 var clicks = 0
 
-// Manejo de clicks
-function siguiente(){
-    if(clicks === 0){
-        var client = new XMLHttpRequest();
-        client.open('GET', './Leccion_HTML/leccion2.txt');
-        client.onreadystatechange = function() {
-            document.getElementById("leccion").innerHTML = this.responseText;
+$(document).ready(function(){
+    $("#btn-siguiente").on("click", function(){
+        if(clicks === 0){
+            $("#leccion").html(
+                "<h1>Leccion 2 - HTML</h1>"
+                ) 
+            clicks += 1
         }
-        client.send();
-        clicks += 1;
-    }
-    else if(clicks === 1){
-        
-    }
-}
-
-
+        else if(clicks === 1){
+            $("#leccion").html(
+                "Leccion 3"
+            )
+            clicks += 1
+        }
+    })
+});
